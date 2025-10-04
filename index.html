@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📍 Roadmap Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="header">
+    <h1>📍 Roadmap Tracker</h1>
+  </div>
+
+  <!-- Saved Roadmaps Section -->
+  <div class="saved-roadmaps-section">
+    <h3>Saved Roadmaps</h3>
+    <div id="roadmapSelector"></div>
+    <div class="roadmap-actions">
+      <label for="importFile" class="upload-btn">📂 Import TXT</label>
+      <input type="file" id="importFile" accept=".txt" onchange="importFile(event)" hidden>
+      <button onclick="resetAll()">🗑️ Reset All Roadmaps</button>
+    </div>
+  </div>
+
+  <!-- Search Filter -->
+  <div class="search-section">
+    <input type="text" id="searchInput" placeholder="🔍 Search tasks..." oninput="filterTasks()">
+  </div>
+
+  <!-- Main Section -->
+  <div class="main-section-wrapper">
+    <!-- Sticky Chart + Analytics -->
+    <div class="chart-analytics-container">
+      <canvas id="progressChart" width="300" height="300"></canvas>
+      <div class="analytics" id="analyticsContainer"></div>
+    </div>
+
+    <!-- Roadmap Steps -->
+    <div class="main-section">
+      <div id="roadmapContainer"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

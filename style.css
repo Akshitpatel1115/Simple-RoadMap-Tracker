@@ -1,0 +1,209 @@
+/* ------------------ Base Styles ------------------ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0 15px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ------------------ Saved Roadmaps ------------------ */
+.saved-roadmaps-section {
+    background: #f0f8ff;
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.saved-roadmaps-section h3 {
+    margin-bottom: 12px;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.saved-roadmaps-section button,
+.saved-roadmaps-section .upload-btn {
+    margin: 5px 5px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #17a2b8;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.saved-roadmaps-section button:hover,
+.saved-roadmaps-section .upload-btn:hover {
+    background: #117a8b;
+}
+
+/* ------------------ Search Section ------------------ */
+.search-section {
+    max-width: 700px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* ------------------ Main Layout ------------------ */
+.main-section-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    gap: 20px;
+}
+
+/* Chart & Analytics */
+.chart-analytics-container {
+    position: sticky;
+    top: 15px;
+    flex: 0 0 300px;
+    max-width: 300px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.analytics {
+    background: #fff3cd;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid #ffeeba;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Roadmap Steps */
+.main-section {
+    flex: 1 1 650px;
+}
+
+#roadmapContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.roadmap-step {
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 5px solid #007bff;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.roadmap-step.completed {
+    background: #e0e0e0;
+    border-left-color: #28a745;
+}
+
+.roadmap-step .task-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.roadmap-step label {
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+.step-complete label::before {
+    content: "✅ ";
+}
+
+.roadmap-heading {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.date {
+    margin-left: 10px;
+    color: #dc3545;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 1024px) {
+    .main-section-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-analytics-container {
+        max-width: 90%;
+        margin-bottom: 20px;
+        position: relative;
+        top: auto;
+    }
+
+    .main-section {
+        flex: 1 1 100%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .saved-roadmaps-section h3 {
+        font-size: 1em;
+    }
+
+    .saved-roadmaps-section button,
+    .saved-roadmaps-section .upload-btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    .roadmap-step .task-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
