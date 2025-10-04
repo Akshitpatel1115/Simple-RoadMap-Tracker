@@ -49,12 +49,3 @@ It helps you *track multiple learning or project roadmaps* from plain text files
 7. The *Pie Chart* updates in real time to show your progress.
 
 ---
-
-
-## 📂 Installation & Usage
-
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/roadmap-tracker.git
-
-# Open index.html in your browser
