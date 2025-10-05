@@ -67,7 +67,7 @@ function displaySteps(fileName) {
   updateChart(fileName);
   showAnalytics(fileName);
   showRoadmaps();
-  checkAllCompleted(fileName); // 👈 New check added
+  checkAllCompleted(fileName); // Check for completion
 }
 
 // ----------------------------
@@ -92,7 +92,7 @@ function markComplete(checkbox, fileName, index) {
   localStorage.setItem("roadmaps", JSON.stringify(saved));
   updateChart(fileName);
   showAnalytics(fileName);
-  checkAllCompleted(fileName); // 👈 Check completion again
+  checkAllCompleted(fileName); // Always check again
 }
 
 // ----------------------------
@@ -206,7 +206,7 @@ function filterTasks() {
 }
 
 // ----------------------------
-// ✅ NEW: Check if all tasks completed
+// Check if all tasks completed
 function checkAllCompleted(fileName) {
   const saved = JSON.parse(localStorage.getItem("roadmaps") || "{}");
   const roadmap = saved[fileName];
@@ -215,34 +215,36 @@ function checkAllCompleted(fileName) {
   const totalTasks = roadmap.steps.filter(s => !s.trim().startsWith('#')).length;
   const completedTasks = Object.keys(roadmap.progress).length;
 
-  // If all done
+  // Always remove old message and table first
+  removeCompletionMessage();
+
+  // If all done -> show once
   if (totalTasks > 0 && completedTasks === totalTasks) {
     showCompletionTable(roadmap);
-  } else {
-    const oldTable = document.getElementById("completionTable");
-    if (oldTable) oldTable.remove();
   }
 }
 
 // ----------------------------
-// ✅ NEW: Show completion table
+// Show completion table + message
 function showCompletionTable(roadmap) {
-  // remove old if exist
-  const oldTable = document.getElementById("completionTable");
-  if (oldTable) oldTable.remove();
+  removeCompletionMessage(); // safety
 
   const container = document.getElementById("roadmapContainer");
-  const msg = document.createElement("div");
-  msg.innerHTML = `
-    <h2 style="color:#28a745;text-align:center;">🎉 Congratulations! You’ve completed all tasks! 🎉</h2>
-  `;
 
-  // prepare table
+  const wrapper = document.createElement("div");
+  wrapper.id = "completionWrapper";
+  wrapper.style.textAlign = "center";
+  wrapper.style.marginTop = "20px";
+
+  const msg = document.createElement("div");
+  msg.innerHTML = `<h2 style="color:#28a745;">🎉 Congratulations! You’ve completed all tasks! 🎉</h2>`;
+  msg.style.marginBottom = "10px";
+
   const table = document.createElement("table");
-  table.id = "completionTable";
-  table.style.margin = "20px auto";
+  table.style.margin = "10px auto";
   table.style.borderCollapse = "collapse";
   table.style.width = "90%";
+  table.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
   table.innerHTML = `
     <tr style="background:#007bff;color:white;">
       <th style="padding:10px;border:1px solid #ccc;">Heading</th>
@@ -263,16 +265,24 @@ function showCompletionTable(roadmap) {
       lastHeading = step.replace(/^#+\s*/, '');
       lastDate = null;
     } else if (roadmap.progress[index]) {
-      lastDate = roadmap.progress[index]; // last completed task date
+      lastDate = roadmap.progress[index];
     }
   });
 
-  // add final heading row
   if (lastHeading && lastDate) {
     table.innerHTML += `<tr><td style="padding:8px;border:1px solid #ccc;">${lastHeading}</td>
                         <td style="padding:8px;border:1px solid #ccc;">${lastDate}</td></tr>`;
   }
 
-  container.appendChild(msg);
-  container.appendChild(table);
+  wrapper.appendChild(msg);
+  wrapper.appendChild(table);
+  container.appendChild(wrapper);
 }
+
+// ----------------------------
+// Remove message & table
+function removeCompletionMessage() {
+  const oldWrapper = document.getElementById("completionWrapper");
+  if (oldWrapper) oldWrapper.remove();
+}
+
