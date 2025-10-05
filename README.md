@@ -1,51 +1,65 @@
 # 📍 Roadmap Tracker
 
-A simple *web-based roadmap tracking tool* built with *HTML, CSS & JavaScript*.  
-It helps you *track multiple learning or project roadmaps* from plain text files and visualize your progress in real time.
+A simple and interactive **Roadmap Tracker** web app built using **HTML, CSS, and JavaScript**, designed to help users plan, track, and visualize their learning progress or goals.  
+
+It features real-time progress tracking, task management, completion visualization, and motivational feedback when all tasks are completed ✅.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 📂 *Import TXT Files*  
-  Upload any .txt file containing your roadmap/tasks. The app will automatically create a task list from it.
+### 📝 Task Management
+- Add new tasks with a title and description.  
+- Edit or delete existing tasks easily.  
+- Tasks are automatically saved in **LocalStorage** (no data loss on refresh).  
 
-- ✅ *Task Management*  
-  Mark tasks as *Complete* or *Pending. Each completed task shows the exact **date & time* it was finished.
+### ✅ Progress Tracking
+- Track completion progress dynamically with a **progress bar** and **Chart.js graph**.  
+- When all tasks are marked complete:
+  - A **positive motivational message** appears 🎉  
+  - A **summary table** is displayed showing task titles with their **completion date**.
 
-- 💾 *Auto-Save Progress* (New)  
-  Your task progress is *saved automatically* using the browser’s localStorage.  
-  Even if you refresh the page or close & reopen the app, your completed tasks and timestamps remain intact until you manually *Reset Progress*.
+### 📊 Saved Roadmaps
+- Save multiple roadmaps for different goals or subjects.  
+- Quickly switch between saved roadmaps to manage various learning plans.  
 
-- 📊 *Progress Dashboard*  
-  A dynamic *Pie Chart* (powered by [Chart.js](https://www.chartjs.org/)) shows *Completed vs Pending tasks*.
+### 💾 LocalStorage Integration
+- All roadmaps and task data are stored in **browser LocalStorage**.  
+- No backend or database required.  
 
-- 🕒 *Real-Time Tracking*  
-  Updates the chart and task list instantly whenever you complete a task.
-
-- 💻 *Pure Front-End App*  
-  No backend required — works directly in your browser.
-
----
-
-## 🛠 Tech Stack
-
-- *HTML5* – Page structure  
-- *CSS3* – Styling & layout  
-- *JavaScript (ES6+)* – App logic & interactivity  
-- *Chart.js* – Progress visualization  
-- *LocalStorage* – Persistent task progress
+### 💡 Smart UI Behavior
+- Positive message and table hide automatically when a task is marked pending again.  
+- Clean and responsive layout for both desktop and mobile.  
 
 ---
 
-## ⚡ How It Works
+## 🛠️ Tech Stack
 
-1. Click the *"Import Roadmap"* button.  
-2. Select a .txt file with tasks (each line = one task).  
-3. The app automatically lists tasks as *Pending*.  
-4. Mark tasks as *Complete* when done — date/time will appear automatically.  
-5. Your progress is *saved* — refresh or re-open anytime without losing data.  
-6. Use *Reset Progress* button if you want to start fresh.  
-7. The *Pie Chart* updates in real time to show your progress.
+| Technology | Purpose |
+|-------------|----------|
+| **HTML5** | Structure and layout |
+| **CSS3** | Styling and responsiveness |
+| **JavaScript (ES6)** | App logic and LocalStorage handling |
+| **Chart.js** | Visual progress chart |
 
 ---
+
+## 📷 Preview
+
+![Roadmap Tracker Screenshot](https://via.placeholder.com/800x400?text=Roadmap+Tracker+Preview)
+
+---
+
+## ⚙️ How It Works
+
+1. Enter task details and click **Add Task**.  
+2. Check tasks as completed when done.  
+3. Once all are complete:
+   - A **motivational message** appears.
+   - A **summary table** shows completion dates.  
+4. If any task is unchecked, the message and table hide automatically.  
+
+---
+
+## 📁 Project Structure
+
