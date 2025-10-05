@@ -44,12 +44,6 @@ It features real-time progress tracking, task management, completion visualizati
 
 ---
 
-## 📷 Preview
-
-![Roadmap Tracker Screenshot](https://via.placeholder.com/800x400?text=Roadmap+Tracker+Preview)
-
----
-
 ## ⚙️ How It Works
 
 1. Enter task details and click **Add Task**.  
@@ -60,6 +54,3 @@ It features real-time progress tracking, task management, completion visualizati
 4. If any task is unchecked, the message and table hide automatically.  
 
 ---
-
-## 📁 Project Structure
-
