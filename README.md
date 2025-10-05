@@ -60,4 +60,5 @@ This tracker automatically saves progress, visualizes completion with charts, an
 ## 🙌 Author
 
 **👤 Patel Akshit**
+
 A passionate learner exploring Web Development and Generative AI 🚀
